@@ -1,0 +1,2 @@
+# NailsByJordanPerks
+Loyalty scanner
