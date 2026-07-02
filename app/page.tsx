@@ -387,39 +387,14 @@ export default function LandingPage() {
           border: 1px solid rgba(201,169,110,.14);
         }
 
-        /* ══════════════════════════════════════════════════════════════
-           Mobile — these are the rules that actually apply now.
-           Every selector below matches a real element in the markup.
-           ══════════════════════════════════════════════════════════════ */
+        /* ── Mobile ── */
         @media (max-width: 900px) {
-          .hero-section { grid-template-columns: 1fr !important; min-height: auto !important; padding: 96px 20px 48px !important; gap: 48px !important; text-align: center; }
-          .hero-section .reveal:first-child { max-width: 100% !important; }
-          .hero-cta-row { justify-content: center !important; }
-          .hero-eyebrow { justify-content: center; }
-
-          .hidden-mobile { display: none !important; }
-          .show-mobile { display: flex !important; }
-
-          .how-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
-          .how-visual { padding: 32px 24px !important; }
-
-          .rewards-grid { grid-template-columns: 1fr !important; }
-
-          .loyalty-card { width: 100%; max-width: 300px; animation-name: float-mobile; }
+          .loyalty-card { width: 260px; animation-name: float-mobile; }
           @keyframes float-mobile { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
           .badge-1, .badge-2 { display: none; }
-
-          section { padding-left: 20px !important; padding-right: 20px !important; }
-          #how, #rewards, #testimonials, #cta { padding-top: 72px !important; padding-bottom: 72px !important; }
-
-          .footer-inner { flex-direction: column; text-align: center !important; gap: 20px !important; }
-          .footer-inner > div:last-child { text-align: center !important; }
         }
-        .show-mobile { display: none; }
-
         @media (max-width: 480px) {
           .how-stat-row { flex-direction: column; }
-          .testi-card { width: 82vw; }
         }
       `}</style>
 
@@ -500,7 +475,7 @@ export default function LandingPage() {
       )}
 
       {/* ─── Hero ──────────────────────────────────────────────────── */}
-      <section className="hero-section" style={{
+      <section style={{
         minHeight: "100svh",
         display: "grid",
         gridTemplateColumns: "1fr 1fr",
@@ -517,12 +492,12 @@ export default function LandingPage() {
 
         {/* Text */}
         <div className="reveal" style={{ maxWidth: 560, position: "relative", zIndex: 1 }}>
-          <div className="hero-eyebrow" style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: ".72rem", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 22, fontWeight: 500 }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: 10, fontSize: ".72rem", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: 22, fontWeight: 500 }}>
             <span style={{ display: "inline-block", width: 30, height: 1, background: "var(--gold)" }} />
             Nails by Jordan — Loyalty Programme
           </div>
 
-          <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(2.6rem, 6vw, 5.8rem)", fontWeight: 300, lineHeight: 1.04, letterSpacing: "-.01em", marginBottom: 24 }}>
+          <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "clamp(3.4rem, 6vw, 5.8rem)", fontWeight: 300, lineHeight: 1.04, letterSpacing: "-.01em", marginBottom: 24 }}>
             Every visit,{" "}
             <em style={{ fontStyle: "italic", fontFamily: "'Playfair Display', Georgia, serif", color: "var(--gold)" }}>
               beautifully
@@ -530,11 +505,11 @@ export default function LandingPage() {
             <br />rewarded
           </h1>
 
-          <p style={{ fontSize: "1rem", lineHeight: 1.7, color: "var(--muted)", maxWidth: 420, margin: "0 auto 38px", fontWeight: 300 }}>
+          <p style={{ fontSize: "1rem", lineHeight: 1.7, color: "var(--muted)", maxWidth: 420, marginBottom: 38, fontWeight: 300 }}>
             Join our exclusive loyalty programme and earn rewards with every nail appointment. The more you visit, the more you save.
           </p>
 
-          <div className="hero-cta-row" style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+          <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
             <Link href="/signup" style={{
               background: "var(--black)", color: "var(--white)",
               padding: "15px 32px", borderRadius: 100,
@@ -584,7 +559,7 @@ export default function LandingPage() {
             <em style={{ fontStyle: "italic", fontFamily: "'Playfair Display', Georgia, serif", color: "var(--gold)" }}>come to life</em>
           </h2>
 
-          <div className="how-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center", marginTop: 64 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 80, alignItems: "center", marginTop: 64 }}>
             {/* Steps */}
             <div>
               {STEPS.map((step, i) => (
@@ -628,7 +603,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <div className="rewards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20 }}>
             {REWARDS.map((r) => (
               <div key={r.visits} className="reveal" style={{
                 background: r.featured ? "linear-gradient(145deg, var(--black) 0%, #2e2320 100%)" : "var(--white)",
@@ -728,7 +703,7 @@ export default function LandingPage() {
 
       {/* ─── Footer ───────────────────────────────────────────────── */}
       <footer style={{ background: "var(--nude)", padding: "60px 32px 40px", borderTop: "1px solid rgba(201,169,110,.18)" }}>
-        <div className="footer-inner" style={{ maxWidth: 1120, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
+        <div style={{ maxWidth: 1120, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 24 }}>
           <div style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.3rem", fontWeight: 400 }}>
             Nails by Jordan
             <span style={{ display: "block", fontFamily: "'DM Sans', sans-serif", fontSize: ".62rem", letterSpacing: ".2em", textTransform: "uppercase", color: "var(--gold)", marginTop: 2 }}>
@@ -736,7 +711,7 @@ export default function LandingPage() {
             </span>
           </div>
 
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap", justifyContent: "center" }}>
+          <div style={{ display: "flex", gap: 28, flexWrap: "wrap" }}>
             {[["#how", "How It Works"], ["#rewards", "Rewards"], ["/signup", "Join"], ["/login", "Sign In"]].map(([href, label]) => (
               <a key={href} href={href} style={{ fontSize: ".75rem", letterSpacing: ".1em", textTransform: "uppercase", color: "var(--muted)", textDecoration: "none" }}>{label}</a>
             ))}
@@ -748,6 +723,21 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Responsive overrides */}
+      <style>{`
+        @media (max-width: 900px) {
+          section:first-of-type { grid-template-columns: 1fr !important; }
+          .hidden-mobile { display: none !important; }
+          .show-mobile { display: flex !important; }
+          #how .how-grid-inner { grid-template-columns: 1fr !important; }
+        }
+        .show-mobile { display: none; }
+        @media (max-width: 768px) {
+          [data-rewards-grid] { grid-template-columns: 1fr !important; }
+          [data-how-grid] { grid-template-columns: 1fr !important; }
+        }
+      `}</style>
     </>
   );
 }
